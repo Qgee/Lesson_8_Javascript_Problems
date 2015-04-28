@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+ <link rel="stylesheet" type="text/css" href="style.css">
+
+<script>
+
+function changeBackground(color) {
+   document.body.style.background = color;
+}
+
+function startTime() {
+    var today=new Date();
+    var h=today.getHours();
+    var m=today.getMinutes();
+    var s=today.getSeconds();
+    var ms=today.getMilliseconds();
+    m = checkTime(m);
+    s = checkTime(s);
+
+    if(s%7 == 0){
+        changeBackground("red");
+    }else{
+        changeBackground("blue");
+    }
+
+    document.getElementById('hours').innerHTML      = h;
+    document.getElementById('minutes').innerHTML    = m;
+    document.getElementById('seconds').innerHTML        = s;
+    document.getElementById('milliseconds').innerHTML   = ms;
+    
+    var t = setTimeout(function(){startTime()},50);
+}
+
+function checkTime(i) {
+    if (i<10) {i = "0" + i};  // add zero in front of numbers < 10
+    return i;
+}
+</script>
+</head>
+
+<body onload="startTime()">
+
+<div id="header_top"></div>
+<div id="time_bar">
+    <div id="header_clear"></div> 
+    <div id="spacer_left"></div> 
+    <div id="hours"></div>
+    <div id="spacer">H :</div>
+    <div id="minutes"></div>
+    <div id="spacer">M :</div>
+    <div id="seconds"></div>
+    <div id="spacer">S :</div>
+    <div id="milliseconds"></div>
+    <div id="spacer">ms</div>
+    <div id="middle_spacer"></div>
+    <div id="middle_left_spacer"></div>
+    <div id="ronaldo"></div>
+    <div id="messi"></div>
+    <div id="neuer"></div>
+    <div id="neymar"></div>
+    <div id="rodrigues"></div>
+</div>
+
+</body>
+</html>
